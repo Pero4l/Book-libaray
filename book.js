@@ -62,27 +62,22 @@
 
         // UPDATE A BOOK
 
-            function updateBook(title,  author, year) {
-            title = title.toUpperCase();
-            author = author.toUpperCase();
-            let found = false;
-    
-            for (let i = 0; i < bookLibrary.length; i++) {
-                if (bookLibrary[i].title === title) {
-                    console.log("Book already exists:", bookLibrary[i]);
-                    found = true;
-                    break;
-                }
-            }
+        function updatedBookAuthor(bookId, newAuthor, newTitle) {
+            let foundBook = bookLibrary.find(book => book.id === bookId);
         
-            if (!found) {
-                addBook(title, author, year);
-                console.log(bookLibrary);
-                
+            if (foundBook) {
+                foundBook.author = newAuthor.toUpperCase();
+                foundBook.title = newTitle.toUpperCase();
+                console.log(`Book with ID ${bookId} updated to new author "${newAuthor}" and new title "${newTitle}".`);
+            } else {
+                console.log(`Book with ID ${bookId} not found.`);
             }
         }
-
-        updateBook("habits", "james", 2098)
+        
+        updatedBookAuthor(1, "Chinua Achebe", "Half of a Yellow Sun");
+        
+        console.log("AFTER UPDATING: ", bookLibrary);
+        
 
         console.log("-----------------------------------------------");
 
@@ -112,8 +107,23 @@
 
 
     console.log("-----------------------------------------------");
+
+
+    // VIEW ALL BOOKS
+      
+    
+console.log("ALL BOOKS: ");
+
+bookLibrary.forEach(allBooks)
+
+function allBooks(books){
+    console.log("BOOK: ", books);
+}
+
         
         
+
+
 
         
 
